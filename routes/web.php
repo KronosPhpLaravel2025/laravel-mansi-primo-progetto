@@ -22,3 +22,7 @@ Route::get('/servizi', function () {
     $array = ['siti', 'cucina', 'marketing', 'consulenza'];
     return view('service', ['servizi' => $array, 'nome' => $nome]);
 });
+
+Route::get('/dettaglio-servizio/{service}', function ($service) {
+    return view('detail', ['ciccio' => $service]);
+});
