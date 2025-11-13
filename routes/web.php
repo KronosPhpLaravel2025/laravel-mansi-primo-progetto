@@ -24,5 +24,10 @@ Route::get('/servizi', function () {
 });
 
 Route::get('/dettaglio-servizio/{service}', function ($service) {
-    return view('detail', ['ciccio' => $service]);
+    $array = ['siti', 'cucina', 'marketing', 'consulenza'];
+    //leggere il parametro $service
+    //dichiarare array $array
+    //ciclo tutti gli elementi array
+    //verifico se parametro esiste dentro array
+
 });
