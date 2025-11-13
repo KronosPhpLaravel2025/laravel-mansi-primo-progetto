@@ -30,4 +30,5 @@ Route::get('/dettaglio-servizio/{service}', function ($service) {
     //ciclo tutti gli elementi array
     //verifico se parametro esiste dentro array
 
+    abort(404);
 });
