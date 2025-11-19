@@ -9,11 +9,17 @@ class PageController extends Controller
     //metodo
     public function homepage()
     {
+        // var_dump('test');
+        // die();
+
+
         return view('welcome');
     }
 
     public function about()
     {
+
+
         return view('about');
     }
 
