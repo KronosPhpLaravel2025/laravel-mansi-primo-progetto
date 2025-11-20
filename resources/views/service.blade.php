@@ -1,35 +1,10 @@
 <x-main>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="#">Kronos</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Homepage</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/chi-sono">Chi Sono</a>
-        </li>
-         <li class="nav-item">
-          <a class="nav-link" href="/servizi">Servizi</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/contatti">Contatti</a>
-        </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
+ 
  <h2>Lista dei miei servizi </h2>
- <ul>
-   @foreach ($servizi as $servizio)
-    <li>
-      <a href="/dettaglio-servizio/{{$servizio['key']}}"><img width="16px" src="{{$servizio['icon']}}" alt=""> {{ $servizio['name'] }}</a>
-    </li>
+ <div class="container">
+  @foreach ($servizi as $servizio)
+    <x-card :$servizio></x-card>
   @endforeach 
- </ul>
+ </div>
+ 
 </x-main>
