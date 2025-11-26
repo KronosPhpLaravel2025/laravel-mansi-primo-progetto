@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Service;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class PageController extends Controller
 {
@@ -58,9 +59,24 @@ class PageController extends Controller
     public function services()
     {
         $nome = 'Francesco';
-        //$array = ['siti', 'cucina', 'marketing', 'consulenza'];
 
         $array = Service::all(); //metodo statico
         return view('service', ['servizi' => $array, 'nome' => $nome]);
+    }
+
+    public function create()
+    {
+        return view('create');
+    }
+
+    public function store(Request $request)
+    {
+        Service::create([
+            "key" => $request->key,
+            "name" => $request->name,
+            "icon" => $request->icon,
+        ]);
+
+        return redirect()->route('servizi');
     }
 }
