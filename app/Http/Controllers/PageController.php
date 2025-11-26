@@ -79,4 +79,17 @@ class PageController extends Controller
 
         return redirect()->route('servizi');
     }
+
+    public function destroy(Service $key)
+    {
+        // $service = Service::where('key', '=', $key)->first();
+        // if ($service) {
+        //     $service->delete();
+        //     return redirect()->route('servizi');
+        // } else {
+        //     abort(404);
+        // }
+        $key->delete();
+        return redirect()->route('servizi');
+    }
 }

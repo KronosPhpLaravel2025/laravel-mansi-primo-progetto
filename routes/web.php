@@ -18,3 +18,4 @@ Route::get('/dettaglio-servizio/{service}', [PageController::class, 'service']);
 
 Route::get('/crea-servizio', [PageController::class, 'create']);
 Route::post('/salva-dati', [PageController::class, 'store']);
+Route::delete('/cancella-servizio/{key}', [PageController::class, 'destroy']);
