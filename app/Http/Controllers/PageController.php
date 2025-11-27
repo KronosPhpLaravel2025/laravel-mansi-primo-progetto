@@ -80,16 +80,41 @@ class PageController extends Controller
         return redirect()->route('servizi');
     }
 
-    public function destroy(Service $key)
+    public function destroy($key)
     {
-        // $service = Service::where('key', '=', $key)->first();
-        // if ($service) {
-        //     $service->delete();
-        //     return redirect()->route('servizi');
-        // } else {
-        //     abort(404);
-        // }
-        $key->delete();
+        $service = Service::where('key', '=', $key)->first(); //Query
+        if ($service) {
+            $service->delete();
+            return redirect()->route('servizi');
+        } else {
+            abort(404);
+        }
+        //$key->delete();
         return redirect()->route('servizi');
+    }
+
+    public function edit($key)
+    {
+        $service = Service::where('key', '=', $key)->first(); //Query
+        if ($service) {
+            return view('edit', ['servizio' => $service]);
+        } else {
+            abort(404);
+        }
+    }
+
+    public function update($key, Request $request)
+    {
+        $service = Service::where('key', '=', $key)->first(); //Query
+        if ($service) {
+            $service->update([
+                "key" => $request->key,
+                "name" => $request->name,
+                "icon" => $request->icon,
+            ]);
+            return redirect()->route('servizi');
+        } else {
+            abort(404);
+        }
     }
 }

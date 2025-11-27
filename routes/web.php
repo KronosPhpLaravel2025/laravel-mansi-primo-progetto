@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Http;
 Route::get('/', [PageController::class, 'homepage']);
 Route::get('/chi-sono', [PageController::class, 'about']);
 Route::get('/contatti', [PageController::class, 'contact']);
-Route::get('/servizi', [PageController::class, 'services'])->name('servizi');
 Route::get('/dettaglio-servizio/{service}', [PageController::class, 'service']);
 
 // Route::get('/dammi-il-pokemon/{name}', function ($name) {
@@ -16,6 +15,18 @@ Route::get('/dettaglio-servizio/{service}', [PageController::class, 'service']);
 //     return view('example', ['data' => $data]);
 // });
 
-Route::get('/crea-servizio', [PageController::class, 'create']);
-Route::post('/salva-dati', [PageController::class, 'store']);
+//CRUD
+
+//INDEX
+Route::get('/servizi', [PageController::class, 'services'])->name('servizi');
+
+//Creazione
+Route::get('/crea-servizio', [PageController::class, 'create']); //GET
+Route::post('/salva-dati', [PageController::class, 'store']); //POST
+
+//Modifca
+Route::get('/modifica-servizio/{key}', [PageController::class, 'edit']);
+Route::put('/aggiorna-dati/{key}', [PageController::class, 'update']);
+
+//Cancellazione
 Route::delete('/cancella-servizio/{key}', [PageController::class, 'destroy']);
