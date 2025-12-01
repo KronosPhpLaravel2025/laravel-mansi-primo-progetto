@@ -117,4 +117,14 @@ class PageController extends Controller
             abort(404);
         }
     }
+
+    public function show($key)
+    {
+        $service = Service::where('key', '=', $key)->first(); //Query
+        if ($service) {
+            return view('show', ['servizio' => $service]);
+        } else {
+            abort(404);
+        }
+    }
 }

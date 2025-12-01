@@ -24,6 +24,9 @@ Route::get('/servizi', [PageController::class, 'services'])->name('servizi');
 Route::get('/crea-servizio', [PageController::class, 'create']); //GET
 Route::post('/salva-dati', [PageController::class, 'store']); //POST
 
+//Mostra
+Route::get('/mostrami-servizio/{key}', [PageController::class, 'show']);
+
 //Modifca
 Route::get('/modifica-servizio/{key}', [PageController::class, 'edit']);
 Route::put('/aggiorna-dati/{key}', [PageController::class, 'update']);
